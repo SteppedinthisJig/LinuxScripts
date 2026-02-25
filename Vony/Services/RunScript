@@ -1,0 +1,11 @@
+[Unit]
+Description=Vony's Weekly System Audit and Maintenance
+Wants=vony-audit.timer
+
+[Service]
+Type=oneshot
+ExecStart=/bin/bash /home/user/vony-audit/audit.sh --cron
+User=root
+
+[Install]
+WantedBy=multi-user.target
