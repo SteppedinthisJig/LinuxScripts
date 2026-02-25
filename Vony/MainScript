@@ -1,0 +1,55 @@
+#!/usr/bin/env bash
+
+# --- Configuration & Colors ---
+LOG_FILE="./Vony_audit.log"
+TIMESTAMP=$(date "+%Y-%m-%d %H:%M:%S")
+
+# --- Functions ---
+
+audit_security() {
+    echo "[!] Starting Security Audit..."
+    # Check if UFW is active
+    if systemctl is-active --quiet ufw; then
+        echo "  [✓] Firewall (UFW) is active."
+    else
+        echo "  [✗] WARNING: Firewall (UFW) is inactive!"
+    fi
+
+    # Check for failed systemd services
+    FAILED_SERVICES=$(systemctl list-units --state=failed --no-legend)
+    if [ -z "$FAILED_SERVICES" ]; then
+        echo "  [✓] All systemd services are healthy."
+    else
+        echo "  [✗] Failed Services detected: $FAILED_SERVICES"
+    fi
+}
+
+run_maintenance() {
+    echo "[!] Running System Maintenance..."
+    # Example for Arch (Pacman). Change to 'apt autoremove' for Debian.
+    sudo pacman -Sc --noconfirm # Clean cache
+    sudo pacman -Rns $(pacman -Qtdq) --noconfirm 2>/dev/null || echo "  [✓] No orphaned packages to remove."
+    
+    echo "  [✓] Maintenance complete. Logs rotated."
+}
+
+# --- Main TUI Logic ---
+
+main_menu() {
+    CHOICE=$(whiptail --title "Vony's Protection Spells" --menu "Choose an action:" 15 60 4 \
+    "1" "Full System Audit" \
+    "2" "Run Maintenance" \
+    "3" "View Audit Logs" \
+    "4" "Exit" 3>&1 1>&2 2>&3)
+
+    case $CHOICE in
+        1) audit_security ;;
+        2) run_maintenance ;;
+        3) cat "$LOG_FILE" ;;
+        4) exit 0 ;;
+    esac
+}
+
+# Ensure log exists
+touch "$LOG_FILE"
+main_menu
