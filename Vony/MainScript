@@ -33,6 +33,13 @@ run_maintenance() {
     echo "  [✓] Maintenance complete. Logs rotated."
 }
 
+# --- Logic Switch ---
+if [[ "$1" == "--cron" ]]; then
+    audit_security
+    run_maintenance
+    exit 0
+fi
+
 # --- Main TUI Logic ---
 
 main_menu() {
