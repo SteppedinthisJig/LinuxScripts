@@ -4,7 +4,8 @@ Old Hyprland Scripts I used for stuff
 
 
 
-#Vony's Protection Spell Services
+
+# Vony's Protection Spell Services
 A Bash driven TUI using whiptail that performs three roles:
 
 Audit: Checks for open ports, failed systemd services, and orphaned packages.
