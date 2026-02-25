@@ -18,12 +18,12 @@ Checks: Timer file that runs the auditor weekly and logs results to a Git-tracke
 
 ## 🛠 Project Structure
 * `MainScript.sh`: The core logic and TUI.
-* `install.sh`: The automation engine that links the project to the OS.
+* `install.sh`: The automation engine for the OS.
 * `systemd/`: Contains the unit and timer configuration.
 
 ## 📦 Installation
 ```bash
-git clone [https://github.com/YOUR_USERNAME/LinuxScripts.git](https://github.com/YOUR_USERNAME/LinuxScripts.git)
+git clone [https://github.com/SteppedInthisJig/LinuxScripts.git](https://github.com/SteppedInthisJig/LinuxScripts.git)
 cd LinuxScripts/Vony
 chmod +x install.sh
 sudo ./install.sh
