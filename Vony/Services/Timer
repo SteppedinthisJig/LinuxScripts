@@ -1,1 +1,10 @@
+[Unit]
+Description=Run Vony Audit weekly
 
+[Timer]
+OnCalendar=weekly
+Persistent=true     
+RandomizedDelaySec=1h
+
+[Install]
+WantedBy=timers.target
