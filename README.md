@@ -23,7 +23,7 @@ Checks: Timer file that runs the auditor weekly and logs results to a Git-tracke
 
 ## 📦 Installation
 ```bash
-git clone [https://github.com/SteppedInthisJig/LinuxScripts.git](https://github.com/SteppedInthisJig/LinuxScripts.git)
+git clone [https://github.com/SteppedinthisJig/LinuxScripts.git](https://github.com/SteppedinthisJig/LinuxScripts.git)
 cd LinuxScripts/Vony
 chmod +x install.sh
 sudo ./install.sh
