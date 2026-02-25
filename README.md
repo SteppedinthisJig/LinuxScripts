@@ -1,2 +1,2 @@
-# LinuxRice
-Old Hyprland Rice dotfiles
+# LinuxScripts
+Old Hyprland Scripts I used for stuff
