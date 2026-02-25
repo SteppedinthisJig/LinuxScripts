@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# ... (your existing variables) ...
+
+# NEW: Automated execution function
+run_all_silent() {
+    echo "[$(date)] Auto-run started" >> "$LOG_FILE"
+    audit_security >> "$LOG_FILE"
+    # Note: run_maintenance might need 'sudo -n' to avoid hanging on password
+    run_maintenance >> "$LOG_FILE"
+}
+
+# --- Modified Main Logic ---
+if [[ "$1" == "--cron" ]]; then
+    run_all_silent
+else
+    # Your existing main_menu logic here
+    main_menu
+fi
