@@ -1,5 +1,5 @@
 # LinuxScripts
-Old Hyprland Scripts I used for stuff
+Old Hyprland Scripts I used for efficiency and to learn more about the OS itself
 
 
 
