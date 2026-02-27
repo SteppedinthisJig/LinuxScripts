@@ -16,12 +16,12 @@ Security: Checks for common misconfigurations (e.g., SSH root login enabled, ufw
 
 Checks: Timer file that runs the auditor weekly and logs results to a Git-tracked /logs folder.
 
-## 🛠 Project Structure
+## Project Structure
 * `MainScript.sh`: The core logic and TUI.
 * `install.sh`: The automation engine for the OS.
 * `systemd/`: Contains the unit and timer configuration.
 
-## 📦 Installation
+## Installation
 ```bash
 git clone [https://github.com/SteppedinthisJig/LinuxScripts.git](https://github.com/SteppedinthisJig/LinuxScripts.git)
 cd LinuxScripts/Vony
